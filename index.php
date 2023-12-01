@@ -29,10 +29,11 @@
                             <h1 class="display-1 text-muted">Todo List</h1>
                             <ul class="list-group list-group-flush border border-1 rounded">
                                 <li v-for="(item, index) in todoList" :key="index"
-                                    class="list-group-item d-flex felx-row justify-content-between "
-                                    :class="{'text-decoration-line-through' : item.done}">
-                                    <div @click="markAsDone(index)">{{item.nome}}</div>
-                                    <div @click="removeParams(index)">X</div>
+                                    class="list-group-item d-flex felx-row justify-content-between align-items-center">
+                                    <div @click="markAsDone(index)"
+                                        :class="{'text-decoration-line-through' : item.done}">
+                                        {{item.nome}}</div>
+                                    <div @click="removeParams(index)" class="btn btn-danger">X</div>
                                 </li>
                             </ul>
                         </div>
@@ -46,7 +47,7 @@
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" placeholder="Inserisci elemento..."
                                     aria-label="Inserisci nuovo elemento per la lista" aria-describedby="button-add"
-                                    v-model="newTask">
+                                    v-model="newTask" @keyup.enter="addTask">
                                 <button class="btn btn-outline-warning" type="button" id="button-add"
                                     @click="addTask">Inserisci</button>
                             </div>
