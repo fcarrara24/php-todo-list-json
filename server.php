@@ -3,13 +3,16 @@
 //leggo il file todolist.json e lo metto in una variabile come stringa
 $filecontent = file_get_contents("todo-list.json");
 
-//var_dump($filecontent);
-
+// il true serve per trasformare in array
 $list = json_decode($filecontent, true);
+
 
 //adding tasks
 if (isset($_POST['task'])) {
-    $newtask = $_POST['task'];
+    $newtask = [
+        "nome" => $_POST['task'],
+        "done" => true
+    ];
     array_push($list, $newtask);
     file_put_contents('todo-list.json', json_encode($list));
 
@@ -21,7 +24,6 @@ if (isset($_POST['deletetask'])) {
     file_put_contents('todo-list.json', json_encode($list));
 
 }
-
 
 header('Content-Type: application/json');
 echo json_encode($list);

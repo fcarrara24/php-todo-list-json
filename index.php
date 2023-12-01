@@ -28,15 +28,16 @@
                         <div class="col-12">
                             <h1 class="display-1 text-muted">Todo List</h1>
                             <ul class="list-group list-group-flush border border-1 rounded">
-                                <li class="list-group-item ">
-                                    lista
+                                <li v-for="(item, index) in todoList" :key="index" class="list-group-item "
+                                    :class="{'text-decoration-line-through' : item.done}">
+                                    {{item.nome}}
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="add-todo">
+            <section class=" add-todo">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -45,7 +46,7 @@
                                     aria-label="Inserisci nuovo elemento per la lista" aria-describedby="button-add"
                                     v-model="newTask">
                                 <button class="btn btn-outline-warning" type="button" id="button-add"
-                                    @click="addTask()">Inserisci</button>
+                                    @click="addTask">Inserisci</button>
                             </div>
                         </div>
                     </div>

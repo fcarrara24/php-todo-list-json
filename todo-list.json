@@ -1,5 +1,1 @@
-[
-    "cane",
-    "gatto",
-    "topo magico"
-]
+[{"nome":"john","done":true},{"nome":"23","done":false},{"nome":"23","done":false},{"nome":"nsdf","done":false},{"nome":"fasdf","done":false},{"nome":"34","done":false},{"nome":"34","done":true}]
