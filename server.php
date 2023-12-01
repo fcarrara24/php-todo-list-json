@@ -11,15 +11,24 @@ $list = json_decode($filecontent, true);
 if (isset($_POST['task'])) {
     $newtask = [
         "nome" => $_POST['task'],
-        "done" => true
+        "done" => false
     ];
     array_push($list, $newtask);
     file_put_contents('todo-list.json', json_encode($list));
 
 }
 
-if (isset($_POST['deletetask'])) {
-    $indexx = $_POST['deletetask'];
+//changing doc propierties
+if (isset($_POST['index'])) {
+
+    $list[$_POST['index']]['done'] = !$list[$_POST['index']]['done'];
+    file_put_contents('todo-list.json', json_encode($list));
+
+}
+
+
+if (isset($_POST['indexToRemove'])) {
+    $index = $_POST['indexToRemove'];
     array_splice($list, $index, 1);
     file_put_contents('todo-list.json', json_encode($list));
 

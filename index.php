@@ -28,9 +28,11 @@
                         <div class="col-12">
                             <h1 class="display-1 text-muted">Todo List</h1>
                             <ul class="list-group list-group-flush border border-1 rounded">
-                                <li v-for="(item, index) in todoList" :key="index" class="list-group-item "
+                                <li v-for="(item, index) in todoList" :key="index"
+                                    class="list-group-item d-flex felx-row justify-content-between "
                                     :class="{'text-decoration-line-through' : item.done}">
-                                    {{item.nome}}
+                                    <div @click="markAsDone(index)">{{item.nome}}</div>
+                                    <div @click="removeParams(index)">X</div>
                                 </li>
                             </ul>
                         </div>

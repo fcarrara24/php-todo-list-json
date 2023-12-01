@@ -42,6 +42,28 @@ createApp({
                 })
             this.newTask = "";
 
+        },
+        markAsDone(index) {
+            const data = new FormData();
+            data.append("index", index);
+
+            axios
+                .post(this.apiUrl, data)
+                .then((response) => {
+                    this.todoList = response.data;
+                    console.log(response.data);
+                })
+        },
+        removeParams(index) {
+            const data = new FormData();
+            data.append("indexToRemove", index);
+
+            axios
+                .post(this.apiUrl, data)
+                .then((response) => {
+                    this.todoList = response.data;
+                    console.log(response.data);
+                })
         }
 
     },
